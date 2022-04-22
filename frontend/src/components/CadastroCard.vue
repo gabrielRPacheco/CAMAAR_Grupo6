@@ -21,20 +21,14 @@
   const cadastrar = async () =>{
     const isValid = await form.value.validate()
     if(isValid){
-      try {
-        const res = await authenticate(user);
-        if(res) {
-          console.log('res', router.name)
-          router.push({path: '/home'})
-        }
-      } catch (e) {
-        console.error(e);
-          $q.notify({
-          message: 'Falha ao fazer login.',
-          position: 'top',
-          color: 'negative'
-        })
-      }
+      const form = document.getElementById('form_cadastro');
+      const nome = form.elements[0].value
+      const curso = form.elements[1].value
+      const matricula = form.elements[2].value
+      const formacao = form.elements[3].value
+      const ocupacao = form.elements[4].value
+      const email = form.elements[5].value
+      alert(formacao);
     }
     else{
       alert("Preencha todos os dados para prosseguir");
@@ -44,8 +38,8 @@
 <template>
 <div class="row">
   <q-card class="rounded-border q-pa-xl justify-center col-12 text-center">
-    <h1 class="text-h3">Cadastrar Aluno</h1>
-    <q-form ref="form" class="q-gutter-sm q-mt-xl row">
+    <h1 class="text-h3">Cadastrar</h1>
+    <q-form ref="form" class="q-gutter-sm q-mt-xl row" id="form_cadastro">
       <q-input
         rounded
         outlined
@@ -53,6 +47,7 @@
         type="text"
         v-model="user.name"
         class="col-12"
+        id="txtname"
         lazy-rules
         :rules="[val => !!val || 'Nome Obrigatório']"
       ></q-input>
@@ -61,7 +56,7 @@
         outlined
         label="Curso"
         type="text"
-        v-model="user.curso"
+        v-model="user.course"
         class="col-12"
         lazy-rules
         :rules="[val => !!val || 'Curso Obrigatório']"
@@ -71,20 +66,10 @@
         outlined
         label="Matricula"
         type="text"
-        v-model="user.matricula"
+        v-model="user.registration"
         class="col-12"
         lazy-rules
         :rules="[val => !!val || 'Matricula Obrigatória']"
-      ></q-input>
-	   <q-input
-        rounded
-        outlined
-        label="Usuario"
-        type="text"
-        v-model="user.usuario"
-        class="col-12"
-        lazy-rules
-        :rules="[val => !!val || 'Usuario Obrigatório']"
       ></q-input>
       <q-input
         rounded
@@ -101,7 +86,7 @@
         outlined
         label="Ocupação"
         type="text"
-        v-model="user.ocupacao"
+        v-model="user.occupation"
         class="col-12"
         lazy-rules
         :rules="[val => !!val || 'Ocupação Obrigatória']"
@@ -116,16 +101,6 @@
         lazy-rules
         :rules="[val => !!val || 'E-Mail Obrigatório']"
         data-test-email="email"
-      ></q-input>
-      <q-input
-        type="password"
-        rounded
-        outlined
-        label="Senha"
-        v-model="user.password"
-        class="col-12"
-        :rules="[val => !!val || 'Senha Obrigatória']"
-        data-test-senha="senha"
       ></q-input>
       <q-btn
         rounded
