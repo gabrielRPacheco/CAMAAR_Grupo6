@@ -1,8 +1,8 @@
 <script setup>
-import CadastroCard from 'src/components/CadastroCard.vue'
+import CadastrarCard from 'src/components/CadastrarCard.vue'
 </script>
 <template>
-<div class="bg-secondary row items-center justify-center">
-    <CadastroCard class="col-11 col-sm-8 col-md-6 col-lg-4 col-xl-4"/>
-</div>
+  <div class="bg-secondary fullscreen row items-center justify-center">
+    <CadastrarCard class="col-11 col-sm-8 col-md-6 col-lg-4 col-xl-4"/>
+  </div>
 </template>

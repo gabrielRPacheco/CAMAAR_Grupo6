@@ -1,11 +1,8 @@
 <template>
   <div>
-    <h3>Cadastrar usuários:</h3>
-    <a href="/#/cadastrar"><p>Cadastrar aluno</p></a>
-    <a><p>Cadastrar professor</p></a>
+    <h1>teste</h1>
   </div>
 </template>
 
 <script setup>
 </script>
-
